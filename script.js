@@ -62,7 +62,7 @@ const produto = async () => {
  * @param {Element} product - Elemento do produto.
  * @returns {string} ID do produto.
  */
-const getIdFromProductItem = (product) => product.querySelector('#span.id').innerText;
+// const getIdFromProductItem = (product) => product.querySelector('#span.id').innerText;
 // getIdFromProductItem();
 
 /**
@@ -73,13 +73,13 @@ const getIdFromProductItem = (product) => product.querySelector('#span.id').inne
  * @param {string} product.price - Preço do produto.
  * @returns {Element} Elemento de um item do carrinho.
  */
-const createCartItemElement = ({ id, title, price }) => {
-  const li = document.createElement('li');
-  li.className = 'cart__item';
-  li.innerText = `ID: ${id} | TITLE: ${title} | PRICE: $${price}`;
-  li.addEventListener('click', cartItemClickListener);
-  return li;
-};
+// const createCartItemElement = ({ id, title, price }) => {
+//   const li = document.createElement('li');
+//   li.className = 'cart__item';
+//   li.innerText = `ID: ${id} | TITLE: ${title} | PRICE: $${price}`;
+//   li.addEventListener('click', cartItemClickListener);
+//   return li;
+// };
 // createCartItemElement();
 window.onload = () => {
   produto();
