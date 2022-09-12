@@ -2,13 +2,16 @@
 
 const fetchItem = async (ItemID) => {
   const url = `https://api.mercadolibre.com/items/${ItemID}`;
-  await fetch(url)
-    .then((resposta) => resposta.json())
-    .then((results) => results)
-    .catch((error) => `You must provide an url \n${error}`);
+  try {
+    const fet = await fetch(url);
+    const resposta = await fet.json();
+    return resposta.results;
+  } catch (error) {
+    return `You must provide an url \n${error}`;
+  }
 };
 
-fetchItem('MLB1615760527');
+// fetchItem('MLB1615760527');
 
 if (typeof module !== 'undefined') {
   module.exports = {

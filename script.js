@@ -36,13 +36,8 @@ const createCustomElement = (element, className, innerText) => {
  * @param {string} product.thumbnail - URL da imagem do produto.
  * @returns {Element} Elemento de produto.
  */
-const createProductItemElement = async ({ id, title, thumbnail }) => {
-  // const getFunction = await fetchItem();
-  // const { id, title, thumbnail } = getFunction;
-  const itens = document.querySelector('.items');
+const createProductItemElement = ({ id, title, thumbnail }) => {
   const section = document.createElement('section');
-  // const lista = document.createElement('li');
-
   section.className = 'item';
 
   section.appendChild(createCustomElement('span', 'item_id', id));
@@ -50,18 +45,25 @@ const createProductItemElement = async ({ id, title, thumbnail }) => {
   section.appendChild(createProductImageElement(thumbnail));
   section.appendChild(createCustomElement('button', 'item__add', 'Adicionar ao carrinho!'));
 
-  itens.appendChild(section);
   return section;
 };
-createProductItemElement();
+
+const produto = async () => {
+  const itens = document.querySelector('.items');
+  const imprimindoProduto = await fetchProducts('computador');
+  imprimindoProduto.forEach((product) => {
+    const pro = createProductItemElement(product);
+    itens.appendChild(pro);
+  });
+};
 
 /**
  * Função que recupera o ID do produto passado como parâmetro.
  * @param {Element} product - Elemento do produto.
  * @returns {string} ID do produto.
  */
-const getIdFromProductItem = (product) => product.querySelector('span.id').innerText;
-getIdFromProductItem();
+const getIdFromProductItem = (product) => product.querySelector('#span.id').innerText;
+// getIdFromProductItem();
 
 /**
  * Função responsável por criar e retornar um item do carrinho.
@@ -78,5 +80,7 @@ const createCartItemElement = ({ id, title, price }) => {
   li.addEventListener('click', cartItemClickListener);
   return li;
 };
-createCartItemElement();
-window.onload = () => { };
+// createCartItemElement();
+window.onload = () => {
+  produto();
+};

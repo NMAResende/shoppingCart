@@ -14,13 +14,16 @@
 
 const fetchProducts = async (QUERY) => {
   const url = `https://api.mercadolibre.com/sites/MLB/search?q=${QUERY}`;
-  await fetch(url)
-    .then((resposta) => resposta.json())
-    .then((results) => results)
-    .catch((error) => `You must provide an url \n${error}`);
+  try {
+    const fet = await fetch(url);
+    const resposta = await fet.json();
+    return resposta.results;
+  } catch (error) {
+    return `You must provide an url \n${error}`;
+  }
 };
 
-fetchProducts('computador');
+// fetchProducts('computador');
 
 if (typeof module !== 'undefined') {
   module.exports = {
