@@ -41,7 +41,7 @@ const createProductItemElement = async ({ id, title, thumbnail }) => {
   // const { id, title, thumbnail } = getFunction;
   const itens = document.querySelector('.items');
   const section = document.createElement('section');
-  const lista = document.createElement('li');
+  // const lista = document.createElement('li');
 
   section.className = 'item';
 
@@ -53,7 +53,7 @@ const createProductItemElement = async ({ id, title, thumbnail }) => {
   itens.appendChild(section);
   return section;
 };
-createProductItemElement({});
+createProductItemElement();
 
 /**
  * Função que recupera o ID do produto passado como parâmetro.
@@ -61,6 +61,7 @@ createProductItemElement({});
  * @returns {string} ID do produto.
  */
 const getIdFromProductItem = (product) => product.querySelector('span.id').innerText;
+getIdFromProductItem();
 
 /**
  * Função responsável por criar e retornar um item do carrinho.
@@ -77,5 +78,5 @@ const createCartItemElement = ({ id, title, price }) => {
   li.addEventListener('click', cartItemClickListener);
   return li;
 };
-
+createCartItemElement();
 window.onload = () => { };
