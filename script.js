@@ -37,8 +37,8 @@ const createCustomElement = (element, className, innerText) => {
  * @returns {Element} Elemento de produto.
  */
 const createProductItemElement = async ({ id, title, thumbnail }) => {
-  const getFunction = await fetchItem();
-  const { id, title, thumbnail } = getFunction;
+  // const getFunction = await fetchItem();
+  // const { id, title, thumbnail } = getFunction;
   const itens = document.querySelector('.items');
   const section = document.createElement('section');
   const lista = document.createElement('li');
