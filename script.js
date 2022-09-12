@@ -1,6 +1,8 @@
 // Esse tipo de comentário que estão antes de todas as funções são chamados de JSdoc,
 // experimente passar o mouse sobre o nome das funções e verá que elas possuem descrições! 
 
+const { fetchProducts } = require("./helpers/fetchProducts");
+
 // Fique a vontade para modificar o código já escrito e criar suas próprias funções!
 
 /**
@@ -38,6 +40,7 @@ const createCustomElement = (element, className, innerText) => {
  * @returns {Element} Elemento de produto.
  */
 const createProductItemElement = ({ id, title, thumbnail }) => {
+  const itens = document.querySelector('.items');
   const section = document.createElement('section');
   section.className = 'item';
 
@@ -46,8 +49,10 @@ const createProductItemElement = ({ id, title, thumbnail }) => {
   section.appendChild(createProductImageElement(thumbnail));
   section.appendChild(createCustomElement('button', 'item__add', 'Adicionar ao carrinho!'));
 
+  itens.appendChild(section);
   return section;
 };
+createProductItemElement('product');
 
 /**
  * Função que recupera o ID do produto passado como parâmetro.
