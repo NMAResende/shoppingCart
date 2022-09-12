@@ -13,7 +13,7 @@ describe('1 - Teste a função fetchProducts', () => {
     expect(fetch).toHaveBeenCalledWith(url);
   })
   it('Verificar o retorno da função fetchProducts quando recebe o argumento `\computador`', async () => {
-    await expect(fetchProducts('computador')).toContainEqual(computadorSearch);
+    await expect(fetchProducts('computador')).toEqual(computadorSearch);
   });
   it('Verificar se ao chamar a função fetchProducts sem argumento ela devolve uma mensagem de erro', async () => {
     try {
