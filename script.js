@@ -73,14 +73,31 @@ const produto = async () => {
  * @param {string} product.price - Preço do produto.
  * @returns {Element} Elemento de um item do carrinho.
  */
-// const createCartItemElement = ({ id, title, price }) => {
-//   const li = document.createElement('li');
-//   li.className = 'cart__item';
-//   li.innerText = `ID: ${id} | TITLE: ${title} | PRICE: $${price}`;
-//   li.addEventListener('click', cartItemClickListener);
-//   return li;
-// };
-// createCartItemElement();
-window.onload = () => {
-  produto();
+const createCartItemElement = ({ id, title, price }) => {
+  const li = document.createElement('li');
+  li.className = 'cart__item';
+  li.innerText = `ID: ${id} | TITLE: ${title} | PRICE: $${price}`;
+  // li.addEventListener('click', cartItemClickListener);
+  return li;
+};
+
+const itens = async (e) => {
+  const item = document.querySelector('.cart__items');
+  // const id = document.querySelectorAll('.item_id');
+  const id = e.target.parentNode.firstChild.innerText;
+  const criandoItem = await fetchItem(id);
+  const listaItens = createCartItemElement(criandoItem);
+  item.appendChild(listaItens);
+};
+
+const criandoBotao = () => {
+  const botao = document.querySelectorAll('.item__add');
+  for (let i = 0; i < botao.length; i += 1) {
+    botao[i].addEventListener('click', itens);
+  }
+};
+
+window.onload = async () => {
+  await produto();
+  criandoBotao();
 };
