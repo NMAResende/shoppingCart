@@ -74,17 +74,17 @@ const produto = async () => {
  * @returns {Element} Elemento de um item do carrinho.
  */
 
-const preco = () => {
-  const criandoTotal = document.createElement('div');
-  criandoTotal.className = 'total-price';
-  const precoTotal = document.querySelector('.total-price');
-  console.log(precoTotal);
-  let total = 0;
-  for (let i = 0; i < item.price.length; i += 1) {
-    total += item[i];
-  }
-  precoTotal.innerText = `Total da compra: ${total}`;
-};
+// const preco = () => {
+//   const criandoTotal = document.createElement('div');
+//   criandoTotal.className = 'total-price';
+//   const precoTotal = document.querySelector('.total-price');
+//   console.log(precoTotal);
+//   let total = 0;
+//   for (let i = 0; i < item.price.length; i += 1) {
+//     total += item[i];
+//   }
+//   precoTotal.innerText = `Total da compra: ${total}`;
+// };
 // preco();
 
 const removerLi = (e) => {
