@@ -62,7 +62,7 @@ const produto = async () => {
  * @param {Element} product - Elemento do produto.
  * @returns {string} ID do produto.
  */
-// const getIdFromProductItem = (product) => product.querySelector('#span.id').innerText;
+// const getIdFromProductItem = (product) => product.querySelector('span.item_id').innerText;
 // getIdFromProductItem();
 
 /**
@@ -73,14 +73,38 @@ const produto = async () => {
  * @param {string} product.price - Preço do produto.
  * @returns {Element} Elemento de um item do carrinho.
  */
+
+const preco = () => {
+  const criandoTotal = document.createElement('div');
+  criandoTotal.className = 'total-price';
+  const precoTotal = document.querySelector('.total-price');
+  console.log(precoTotal);
+  let total = 0;
+  for (let i = 0; i < item.price.length; i += 1) {
+    total += item[i];
+  }
+  precoTotal.innerText = `Total da compra: ${total}`;
+};
+// preco();
+
+const removerLi = (e) => {
+  e.target.remove();
+  };
+
 const createCartItemElement = ({ id, title, price }) => {
   const li = document.createElement('li');
   li.className = 'cart__item';
   li.innerText = `ID: ${id} | TITLE: ${title} | PRICE: $${price}`;
-  li.addEventListener('click', () => {
-    li.remove();
-  });
+  li.addEventListener('click', removerLi);
+    saveCartItems(li.innerHTML);
   return li;
+};
+
+const btnItens = () => {
+  const item = document.querySelectorAll('.cart__item');
+  for (let i = 0; i < item.length; i += 1) {
+    item[i].addEventListener('click', removerLi);
+  }
 };
 
 const itens = async (e) => {
@@ -90,6 +114,7 @@ const itens = async (e) => {
   const criandoItem = await fetchItem(id);
   const listaItens = createCartItemElement(criandoItem);
   item.appendChild(listaItens);
+  saveCartItems(item.innerHTML);
 };
 
 const criandoBotao = () => {
@@ -99,7 +124,15 @@ const criandoBotao = () => {
   }
 };
 
+const mantendoItem = (valor) => {
+  const item = document.querySelector('.cart__items');
+  const items = getSavedCartItems(valor);
+  item.innerHTML = items;
+};
+
 window.onload = async () => {
   await produto();
   criandoBotao();
+  mantendoItem('cartItems');
+  btnItens();
 };
