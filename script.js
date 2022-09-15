@@ -105,6 +105,7 @@ const preco = async () => {
 
 const removerLi = (e) => {
   e.target.remove();
+  preco();
 };
 
 const limpaCarrinho = () => {
