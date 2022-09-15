@@ -19,7 +19,7 @@ const loading = () => {
 const fimLoading = () => {
   const container = document.getElementsByClassName('container')[0];
   const chamandoLoading = document.getElementsByClassName('loading')[0];
- container.removeChild(chamandoLoading);
+  container.removeChild(chamandoLoading);
 };
 
 const createProductImageElement = (imageSource) => {
@@ -89,17 +89,17 @@ const produto = async () => {
  * @returns {Element} Elemento de um item do carrinho.
  */
 
-const preco = async () => {
-  const item = document.querySelectorAll('.cart__item');
-  const precoTotal = document.querySelector('.total-price');
-  let total = 0;
-  for (let i = 0; i < item.length; i += 1) {
-    const convertendoPreco = Number(item.innerText.split('$')[1]);
-    total += convertendoPreco[i];
-  }
-  precoTotal.innerText = `Total da compra: $ ${(Math.round(total * 100) / 100)}`;
-  // Referência: https://stackoverflow.com/questions/67375076/javascript-built-in-alternatives-to-tofixed-rounding
-};
+// const preco = async () => {
+//   const item = document.querySelectorAll('.cart__item');
+//   const precoTotal = document.querySelector('.total-price');
+//   let total = 0;
+//   for (let i = 0; i < item.length; i += 1) {
+//     const convertendoPreco = Number(item.innerText.split('$')[1]);
+//     total += convertendoPreco[i];
+//   }
+//   precoTotal.innerText = `Total da compra: $ ${(Math.round(total * 100) / 100)}`;
+//   // Referência: https://stackoverflow.com/questions/67375076/javascript-built-in-alternatives-to-tofixed-rounding
+// };
 
 const removerLi = (e) => {
   e.target.remove();
@@ -121,7 +121,6 @@ const createCartItemElement = ({ id, title, price }) => {
   li.className = 'cart__item';
   li.innerText = `ID: ${id} | TITLE: ${title} | PRICE: $${price}`;
   li.addEventListener('click', removerLi);
-  preco();
   saveCartItems(li.innerHTML);
   return li;
 };
