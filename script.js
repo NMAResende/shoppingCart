@@ -89,7 +89,7 @@ const produto = async () => {
  * @returns {Element} Elemento de um item do carrinho.
  */
 
-const preco = () => {
+const preco = async () => {
   const item = document.querySelectorAll('.cart__item');
   const precoTotal = document.querySelector('.total-price');
   let total = 0;
