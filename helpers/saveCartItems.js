@@ -1,5 +1,5 @@
 const saveCartItems = (valor) => {
-  localStorage.setItem('cartItems', valor);
+    localStorage.setItem('cartItems', valor);
 };
 
 // const itens = document.querySelectorAll('.cart-item');
