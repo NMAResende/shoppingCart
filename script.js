@@ -89,17 +89,19 @@ const produto = async () => {
  * @returns {Element} Elemento de um item do carrinho.
  */
 
-// const preco = async () => {
-//   const item = document.querySelectorAll('.cart__item');
-//   const precoTotal = document.querySelector('.total-price');
-//   let total = 0;
-//   for (let i = 0; i < item.length; i += 1) {
-//     const convertendoPreco = Number(item.innerText.split('$')[1]);
-//     total += convertendoPreco[i];
-//   }
-//   precoTotal.innerText = `Total da compra: $ ${(Math.round(total * 100) / 100)}`;
-//   // Referência: https://stackoverflow.com/questions/67375076/javascript-built-in-alternatives-to-tofixed-rounding
-// };
+const preco = () => {
+  const item = document.querySelectorAll('.cart__item');
+  const precoTotal = document.querySelector('.total-price');
+  let total = 0;
+  console.log(item);
+  for (let i = 0; i < item.length; i += 1) {
+    const convertendoPreco = Number(item[i].innerText.split('$')[1]);
+    console.log(item[i].innerText.split('$')[1]);
+    total += convertendoPreco;
+  }
+  precoTotal.innerText = `Total da compra: $ ${(Math.round(total * 100) / 100)}`;
+  // Referência: https://stackoverflow.com/questions/67375076/javascript-built-in-alternatives-to-tofixed-rounding
+};
 
 const removerLi = (e) => {
   e.target.remove();
@@ -108,6 +110,7 @@ const removerLi = (e) => {
 const limpaCarrinho = () => {
   const listaOrdenada = document.getElementsByClassName('cart__items')[0];
   listaOrdenada.innerHTML = null;
+  preco();
   localStorage.removeItem('cartItems');
 };
 
@@ -139,6 +142,7 @@ const itens = async (e) => {
   const criandoItem = await fetchItem(id);
   const listaItens = createCartItemElement(criandoItem);
   item.appendChild(listaItens);
+  preco();
   saveCartItems(item.innerHTML);
 };
 
@@ -163,4 +167,5 @@ window.onload = async () => {
   mantendoItem('cartItems');
   btnItens();
   emptyCart();
+  preco();
 };
