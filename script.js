@@ -7,6 +7,21 @@
  * @param {string} imageSource - URL da imagem.
  * @returns {Element} Elemento de imagem do produto.
  */
+
+const loading = () => {
+  const container = document.getElementsByClassName('container')[0];
+  const criandoLoading = document.createElement('p');
+  criandoLoading.className = 'loading';
+  criandoLoading.innerText = 'carregando...';
+  container.appendChild(criandoLoading);
+};
+
+const fimLoading = () => {
+  const container = document.getElementsByClassName('container')[0];
+  const chamandoLoading = document.getElementsByClassName('loading')[0];
+ container.removeChild(chamandoLoading);
+};
+
 const createProductImageElement = (imageSource) => {
   const img = document.createElement('img');
   img.className = 'item__image';
@@ -74,18 +89,17 @@ const produto = async () => {
  * @returns {Element} Elemento de um item do carrinho.
  */
 
-// const preco = () => {
-//   const criandoTotal = document.createElement('div');
-//   criandoTotal.className = 'total-price';
-//   const precoTotal = document.querySelector('.total-price');
-//   console.log(precoTotal);
-//   let total = 0;
-//   for (let i = 0; i < item.price.length; i += 1) {
-//     total += item[i];
-//   }
-//   precoTotal.innerText = `Total da compra: ${total}`;
-// };
-// preco();
+const preco = async () => {
+  const item = document.querySelectorAll('.cart__item');
+  const precoTotal = document.querySelector('.total-price');
+  let total = 0;
+  for (let i = 0; i < item.length; i += 1) {
+    const convertendoPreco = Number(item.innerText.split('$')[1]);
+    total += convertendoPreco[i];
+  }
+  precoTotal.innerText = `Total da compra: $ ${(Math.round(total * 100) / 100)}`;
+  // Referência: https://stackoverflow.com/questions/67375076/javascript-built-in-alternatives-to-tofixed-rounding
+};
 
 const removerLi = (e) => {
   e.target.remove();
@@ -107,6 +121,7 @@ const createCartItemElement = ({ id, title, price }) => {
   li.className = 'cart__item';
   li.innerText = `ID: ${id} | TITLE: ${title} | PRICE: $${price}`;
   li.addEventListener('click', removerLi);
+  preco();
   saveCartItems(li.innerHTML);
   return li;
 };
@@ -142,7 +157,9 @@ const mantendoItem = (valor) => {
 };
 
 window.onload = async () => {
+  loading();
   await produto();
+  fimLoading();
   criandoBotao();
   mantendoItem('cartItems');
   btnItens();
