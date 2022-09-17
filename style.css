@@ -11,7 +11,7 @@ body {
 
 .header {
   position: relative;
-  background-color:  rgb(65, 25, 127);
+  background-color:rgb(65, 25, 127);
   display: flex;
   align-items: center;
   width: 100%;
@@ -51,7 +51,6 @@ body {
   color: rgb(65, 25, 127);
   font-size: 20px;
   font-weight: 700;
-  font-family: 'Epilogue';
   height: 21px;
 }
 
@@ -76,7 +75,6 @@ body {
 .item {
   display: flex;
   flex-direction: column;
-  height: auto;
   margin: 5px;
   width: 272px;
   height: 437px;
@@ -99,11 +97,9 @@ body {
   flex-grow: 1;
   padding: 15px;
   text-align: justify;
-  color: #444955;
+  color:rgb(68, 73, 85);
   font-size: 13px;
-  font-weight: bolder;
-  font-family: 'Epilogue';
- 
+  font-weight: 600;
 }
 
 .item .item__image {
@@ -114,14 +110,12 @@ body {
   justify-items: center;
   margin-top: 20px;
   margin-left: 40px;
-  display: flex;
-  align-items:flex-start;
+  align-items: flex-start;
   box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
 }
 
 .item .item__price {
-  font-family: 'Epilogue';
-  font-weight: bolder;
+  font-weight: 600;
   display: flex;
   justify-content: center;
   margin-top: 10px;
@@ -129,10 +123,10 @@ body {
 }
 
 .item_id {
-color: gray;
-font-size: 12px;
-display: flex;
-justify-content: end;
+  color: gray;
+  font-size: 12px;
+  display: flex;
+  justify-content: end;
 }
 
 .item .item__add {
@@ -143,7 +137,7 @@ justify-content: end;
   padding: 10px;
   color: white;
   border-radius: 5px;
-  font-weight: bolder;
+  font-weight: 600;
   height: 30px;
   position: relative;
   margin-left: 20px;
@@ -169,13 +163,13 @@ justify-content: end;
 }
 
 .cart__item {
-color:#444955;
-background-color: #d9dadb;
-padding: 20px;
-font-size: 17px;
-font-weight: bold;
-text-align: justify;
-line-height: 19px;
+  color: rgb(68, 73, 85);
+  background-color: rgb(217, 218, 219);
+  padding: 20px;
+  font-size: 17px;
+  font-weight: 500;
+  text-align: justify;
+  line-height: 19px;
 }
 
 .empty-cart {
@@ -188,7 +182,7 @@ line-height: 19px;
   background-color: rgb(65, 25, 127);
   border-radius: 5px;
   color: white;
-  font-weight: bolder;
+  font-weight: 600;
   font-size: 16px;
 }
 
@@ -198,11 +192,10 @@ line-height: 19px;
   left: 1187px;
   top: 742px;
   margin: 0 auto;
-  font-family: 'Epilogue';
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
   line-height: 1px;
   text-align: center;
   position: absolute;
-};
+}
