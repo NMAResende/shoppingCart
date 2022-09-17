@@ -11,11 +11,13 @@ body {
 
 .header {
   position: relative;
-  background-color: rgb(3, 52, 45);
+  background-color: #41197F;
   display: flex;
   align-items: center;
   width: 100%;
-  height: 60px;
+  height: 80px;
+  border-radius: 2px;
+  padding-left: 30px;
 }
 
 .container-title {
@@ -32,45 +34,49 @@ body {
   position: relative;
   display: flex;
   align-items: center;
-  background-color: rgb(10, 118, 79);
-  width: 40%;
+  background-color: #00D5E2;
+  width: 36.5%;
   height: 100%;
   margin-left: 30px;
+  padding-left: 150px;
+  box-shadow: -2px -4px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
 }
 
 .container-cartTitle span {
   z-index: 1;
 }
 
-.container-cartTitle:after {
+/* .container-cartTitle:after {
   content: '';
   position: absolute;
   top: 15px;
   right: 61.5%;
   width: 39.5%;
   height: 15px;
-  background: rgb(10, 118, 79);
-  transform: skew(-45deg);
+  /* background: rgb(10, 118, 79); */
+  /* transform: skew(-45deg);
   z-index: 0;
-}
+} */
 
-.container-cartTitle:before {
+/* .container-cartTitle:before {
   content: '';
   position: absolute;
   top: 30px;
   right: 61.5%;
   width: 39.5%;
-  height: 15px;
-  background: rgb(10, 118, 79);
-  transform: skew(45deg);
+  height: 15px; */
+  /* background: rgb(10, 118, 79); */
+  /* transform: skew(45deg);
   z-index: 0;
-}
+} */ 
 
 .container-cartTitle .cart__title {
-  color: white;
+  color: #41197F;
   font-size: 20px;
-  padding-left: 35px;
   font-weight: 700;
+  font-family: 'Epilogue';
+  height: 21px;
 }
 
 .container {
@@ -96,10 +102,15 @@ body {
   flex-direction: column;
   height: auto;
   margin: 5px;
-  width: 200px;
+  width: 272px;
+  height: 437px;
   border: 2px solid rgb(234, 234, 233);
   border-radius: 5px;
   box-sizing: border-box;
+  box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  margin-left: 20px;
+  background-color: #F3F9FB;
 }
 
 .item .item__id {
@@ -108,23 +119,61 @@ body {
 
 .item .item__title {
   display: flex;
-  align-items: center;
+  align-items: end;
   flex-grow: 1;
-  padding: 10px;
-  text-align: center;
+  padding: 15px;
+  text-align: justify;
+  color: #444955;
+  font-size: 13px;
+  font-weight: bolder;
+  font-family: 'Epilogue';
+ 
 }
 
 .item .item__image {
-  width: 100%;
+  /* width: 100%; */
+  width: 188px;
+  height: 188px;
+  border-radius: 5px;
+  display: flex;
+  justify-items: center;
+  margin-top: 20px;
+  margin-left: 40px;
+  display: flex;
+  align-items:flex-start;
+  box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
+}
+
+.item .item__price {
+  font-family: 'Epilogue';
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.item_id {
+color: gray;
+font-size: 12px;
+display: flex;
+justify-content: end;
 }
 
 .item .item__add {
-  background-color: rgb(5, 52, 219);
+  background-color: #00D5E2;
   border: 0;
   cursor: pointer;
   margin: 0;
   padding: 10px;
   color: white;
+  border-radius: 5px;
+  font-weight: bolder;
+  height: 30px;
+  position: relative;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 
 .cart {
@@ -136,14 +185,49 @@ body {
 }
 
 .cart .cart__items {
-  height: 500px;
+  height: 900px;
+  width: 100%;
   overflow-y: scroll;
+  background: #F3F9FB;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+
+.cart__item {
+color:#444955;
+background-color: #d9dadb;
+padding: 20px;
+font-size: 17px;
+font-weight: bold;
+text-align: justify;
+line-height: 19px;
 }
 
 .empty-cart {
-  width: 170px;
+  position: absolute;
+  width: 248px;
   height: 35px;
+  left: 1240px;
+  top: 778px;
   margin: 0 auto;
-  border: 2px solid rgb(5, 52, 219);
-  background-color: rgb(249, 249, 246);
+  background-color: #41197F;
+  border-radius: 5px;
+  color: white;
+  font-weight: bolder;
+  font-size: 16px;
 }
+
+.total-price {
+  width: 353px;
+  height: 22px;
+  left: 1187px;
+  top: 742px;
+  margin: 0 auto;
+  font-family: 'Epilogue';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1px;
+  text-align: center;
+  position: absolute;
+};

@@ -43,6 +43,18 @@ const createCustomElement = (element, className, innerText) => {
   return e;
 };
 
+// imprimir o valor no css
+const createCustomElementTwo = (element, className, innerText) => {
+  const e = document.createElement(element);
+  e.className = className;
+  const valor = innerText.toString();
+  valor.replace('.', '').replace(',', '').replace(/\D/g, '');
+  const options = { minimumFractionDigits: 2 };
+  const result = new Intl.NumberFormat('pt-BR', options).format(parseFloat(valor) / 1);
+  e.innerText = `R$ ${result}`;
+  return e;
+};
+
 /**
  * Função responsável por criar e retornar o elemento do produto.
  * @param {Object} product - Objeto do produto. 
@@ -51,13 +63,14 @@ const createCustomElement = (element, className, innerText) => {
  * @param {string} product.thumbnail - URL da imagem do produto.
  * @returns {Element} Elemento de produto.
  */
-const createProductItemElement = ({ id, title, thumbnail }) => {
+const createProductItemElement = ({ id, title, thumbnail, price }) => {
   const section = document.createElement('section');
   section.className = 'item';
 
   section.appendChild(createCustomElement('span', 'item_id', id));
-  section.appendChild(createCustomElement('span', 'item__title', title));
   section.appendChild(createProductImageElement(thumbnail));
+  section.appendChild(createCustomElement('span', 'item__title', title));
+  section.appendChild(createCustomElementTwo('span', 'item__price', price));
   section.appendChild(createCustomElement('button', 'item__add', 'Adicionar ao carrinho!'));
 
   return section;
@@ -120,10 +133,12 @@ const emptyCart = () => {
   carrinhoVazio.addEventListener('click', limpaCarrinho);
 };
 
-const createCartItemElement = ({ id, title, price }) => {
+const createCartItemElement = ({ id, title, thumbnail, price }) => {
   const li = document.createElement('li');
   li.className = 'cart__item';
+  li.innerHTML = `<img id="img"src="${thumbnail}"/img>`;
   li.innerText = `ID: ${id} | TITLE: ${title} | PRICE: $${price}`;
+
   li.addEventListener('click', removerLi);
   saveCartItems(li.innerHTML);
   return li;
