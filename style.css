@@ -11,7 +11,7 @@ body {
 
 .header {
   position: relative;
-  background-color: #41197F;
+  background-color:  rgb(65, 25, 127);
   display: flex;
   align-items: center;
   width: 100%;
@@ -34,7 +34,7 @@ body {
   position: relative;
   display: flex;
   align-items: center;
-  background-color: #00D5E2;
+  background-color: rgb(0, 213, 226);
   width: 36.5%;
   height: 100%;
   margin-left: 30px;
@@ -47,32 +47,8 @@ body {
   z-index: 1;
 }
 
-/* .container-cartTitle:after {
-  content: '';
-  position: absolute;
-  top: 15px;
-  right: 61.5%;
-  width: 39.5%;
-  height: 15px;
-  /* background: rgb(10, 118, 79); */
-  /* transform: skew(-45deg);
-  z-index: 0;
-} */
-
-/* .container-cartTitle:before {
-  content: '';
-  position: absolute;
-  top: 30px;
-  right: 61.5%;
-  width: 39.5%;
-  height: 15px; */
-  /* background: rgb(10, 118, 79); */
-  /* transform: skew(45deg);
-  z-index: 0;
-} */ 
-
 .container-cartTitle .cart__title {
-  color: #41197F;
+  color: rgb(65, 25, 127);
   font-size: 20px;
   font-weight: 700;
   font-family: 'Epilogue';
@@ -110,7 +86,7 @@ body {
   box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
   margin-left: 20px;
-  background-color: #F3F9FB;
+  background-color: rgb(243, 249, 251);
 }
 
 .item .item__id {
@@ -131,7 +107,6 @@ body {
 }
 
 .item .item__image {
-  /* width: 100%; */
   width: 188px;
   height: 188px;
   border-radius: 5px;
@@ -161,7 +136,7 @@ justify-content: end;
 }
 
 .item .item__add {
-  background-color: #00D5E2;
+  background-color: rgb(0, 213, 226);
   border: 0;
   cursor: pointer;
   margin: 0;
@@ -188,7 +163,7 @@ justify-content: end;
   height: 900px;
   width: 100%;
   overflow-y: scroll;
-  background: #F3F9FB;
+  background: rgb(243, 249, 251);
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
 }
@@ -210,7 +185,7 @@ line-height: 19px;
   left: 1240px;
   top: 778px;
   margin: 0 auto;
-  background-color: #41197F;
+  background-color: rgb(65, 25, 127);
   border-radius: 5px;
   color: white;
   font-weight: bolder;
