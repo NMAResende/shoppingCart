@@ -136,7 +136,7 @@ const emptyCart = () => {
 const createCartItemElement = ({ id, title, thumbnail, price }) => {
   const li = document.createElement('li');
   li.className = 'cart__item';
-  li.innerHTML = `<img id="img"src="${thumbnail}"/img>`;
+  li.innerHTML = `${thumbnail}`;
   li.innerText = `ID: ${id} | TITLE: ${title} | PRICE: $${price}`;
 
   li.addEventListener('click', removerLi);
